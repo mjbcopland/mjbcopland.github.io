@@ -1,0 +1,8 @@
+{
+  "name": "mjbcopland.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mjbcopland/mjbcopland.github.io",
+  "author": "Michael Copland <mjbcopland@gmail.com>",
+  "license": "MIT"
+}
