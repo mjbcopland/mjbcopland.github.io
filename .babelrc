@@ -1,13 +1,7 @@
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
-    [
-      "module-resolver",
-      {
-        "alias": {
-          "~": "./src/"
-        }
-      }
-    ]
+    "@babel/plugin-proposal-class-properties",
+    ["module-resolver", { "alias": { "~": "./src/" } }]
   ]
 }
