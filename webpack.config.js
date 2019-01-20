@@ -1,11 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const { smart: merge } = require('webpack-merge');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const config = {
   common: {
@@ -16,7 +17,7 @@ const config = {
     module: {
       rules: [
         {
-          include: /\.jsx?$/,
+          include: /\.m?(j|t)sx?$/,
           exclude: /node_modules/,
           use: ['babel-loader'],
         },
@@ -27,6 +28,10 @@ const config = {
         {
           include: /\.(sa|sc|c)ss$/,
           use: ['css-loader', 'sass-loader'],
+        },
+        {
+          exclude: /\.(m?(j|t)sx?|json|html|(sc|sa|c)ss)$/,
+          use: ['file-loader'],
         },
       ],
     },
@@ -43,11 +48,10 @@ const config = {
         },
       ],
     },
-    plugins: [new ErrorOverlayPlugin()],
+    plugins: [new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }), new ErrorOverlayPlugin()],
   },
   production: {
     mode: 'production',
-    devtool: 'source-map',
     module: {
       rules: [
         {
@@ -57,24 +61,17 @@ const config = {
       ],
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        // // Options similar to the same options in webpackOptions.output
-        // // both options are optional
-        // filename: '[name].css',
-        // chunkFilename: '[id].css',
-      }),
+      new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
+      new webpack.NormalModuleReplacementPlugin(
+        /iconSvgPaths\.js/,
+        path.resolve(__dirname, 'src/iconSvgPaths.js'),
+      ),
+      new MiniCssExtractPlugin(),
     ],
     optimization: {
-      minimizer: [
-        new UglifyJsPlugin({
-          cache: true,
-          parallel: true,
-          sourceMap: true, // set to true if you want JS source maps
-        }),
-        new OptimizeCSSAssetsPlugin({}),
-      ],
+      minimizer: [new TerserPlugin({ parallel: true }), new OptimizeCSSAssetsPlugin()],
     },
   },
 };
 
-module.exports = (env = 'development') => merge(config[env], config.common);
+module.exports = (env) => merge(config[env], config.common);
