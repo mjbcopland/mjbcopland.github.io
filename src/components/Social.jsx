@@ -1,8 +1,12 @@
 import React from 'react';
-import { Card } from '@blueprintjs/core';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
+import { AnchorButton, ButtonGroup } from '@blueprintjs/core';
+
+import '~/css/social.scss';
 
 export default (props) => {
   const links = [
@@ -24,16 +28,14 @@ export default (props) => {
   ];
 
   return (
-    <Card>
-      <ul>
+    <div>
+      <ButtonGroup minimal large>
         {links.map(({ name, href, icon }) => (
-          <li key={name}>
-            <a href={href}>
-              <FontAwesomeIcon icon={icon} {...props} />
-            </a>
-          </li>
+          <AnchorButton key={name} href={href}>
+            <FontAwesomeIcon icon={icon} {...props} />
+          </AnchorButton>
         ))}
-      </ul>
-    </Card>
+      </ButtonGroup>
+    </div>
   );
 };

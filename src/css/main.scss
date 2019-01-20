@@ -1,0 +1,35 @@
+@import "variables.scss";
+
+#main {
+  height: 100%;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: $pt-app-background-color;
+
+  &.bp3-dark {
+    background-color: $pt-dark-app-background-color;
+  }
+}
+
+#header {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#content {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+#footer {
+  opacity: 0.3;
+
+  display: flex;
+  justify-content: center;
+}

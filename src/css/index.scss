@@ -1,0 +1,9 @@
+@import "variables.scss";
+@import "~normalize.css";
+@import "~@blueprintjs/core/src/blueprint.scss";
+
+html,
+body,
+#root {
+  height: 100%;
+}

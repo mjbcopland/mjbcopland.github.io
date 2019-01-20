@@ -1,20 +1,20 @@
-/* global document */
+import '@babel/polyfill';
 
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import '@babel/polyfill';
-import '@blueprintjs/core/lib/css/blueprint.css';
+import { Provider as ThemeProvider } from '~/components/Themes';
+import Main from '~/routes/Main';
 
-import { Container, Header /* About, Contact */, Footer } from '~/components';
+import '~/css/index.scss';
 
 const App = () => (
-  <Container>
-    <Header name="Michael Copland" />
-    {/* <About />
-    <Contact /> */}
-    <Footer />
-  </Container>
+  <ThemeProvider>
+    <Router>
+      <Route component={Main} />
+    </Router>
+  </ThemeProvider>
 );
 
 render(<App />, document.getElementById('root'));
