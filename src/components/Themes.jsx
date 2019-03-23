@@ -2,7 +2,9 @@ import React from 'react';
 import store from 'store';
 import update from 'store/plugins/update';
 
-import { Hotkey, Hotkeys, HotkeysTarget } from '@blueprintjs/core';
+import {
+  Classes, Hotkey, Hotkeys, HotkeysTarget,
+} from '@blueprintjs/core';
 
 store.addPlugin(update);
 
@@ -12,7 +14,7 @@ export const { Consumer } = Context;
 
 export const Provider = HotkeysTarget(
   class extends React.Component {
-    state = { theme: null, dark: true };
+    state = { themes: [], dark: true };
 
     componentDidMount() {
       this.setState(store.get('state'));
@@ -20,6 +22,13 @@ export const Provider = HotkeysTarget(
 
     setState(state) {
       store.update('state', {}, (old) => Object.assign(old, state));
+
+      if (state.dark) {
+        document.body.classList.add(Classes.DARK);
+      } else {
+        document.body.classList.remove(Classes.DARK);
+      }
+
       return super.setState(state);
     }
 
@@ -43,8 +52,7 @@ export const Provider = HotkeysTarget(
 
     render() {
       const { children } = this.props;
-      const { theme, dark } = this.state;
-      const themes = [theme, dark ? 'bp3-dark' : null];
+      const { themes } = this.state;
       return <Context.Provider value={themes}>{children}</Context.Provider>;
     }
   },
