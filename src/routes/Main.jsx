@@ -1,12 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { H1 } from '@blueprintjs/core';
+import { H1, FocusStyleManager } from '@blueprintjs/core';
 
 import { Consumer as ThemeConsumer } from '~/components/Themes';
 import Social from '~/components/Social';
 
 import '~/css/main.scss';
+
+FocusStyleManager.onlyShowFocusOnTabs();
 
 export default () => (
   <ThemeConsumer>

@@ -6,6 +6,7 @@
     "start": "webpack-dev-server --env development",
     "build": "webpack --env production --progress"
   },
+  "homepage": "https://mjbcopland.github.io",
   "repository": "https://github.com/mjbcopland/mjbcopland.github.io",
   "author": "Michael Copland <mjbcopland@gmail.com>",
   "license": "MIT",

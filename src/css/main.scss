@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "variables";
 
 #main {
   height: 100%;
@@ -28,8 +28,12 @@
 }
 
 #footer {
-  opacity: 0.3;
-
   display: flex;
   justify-content: center;
+
+  color: $pt-text-color-disabled;
+
+  .bp3-dark & {
+    color: $pt-dark-text-color-disabled;
+  }
 }
