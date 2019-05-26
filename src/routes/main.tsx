@@ -1,4 +1,5 @@
 import React from 'react';
+import Sound, { PlayStatus } from 'react-sound';
 
 import { AnchorButton, ButtonGroup, FocusStyleManager, H1, H2 } from '@blueprintjs/core';
 
@@ -10,6 +11,8 @@ import { Consumer as ThemeConsumer } from '~/components/themes';
 
 import '~/css/main.scss';
 import '~/css/blink.scss';
+
+import mp3 from '~/mp3/Seven Kingdoms.mp3';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
@@ -35,6 +38,7 @@ export default () => (
   <ThemeConsumer>
     {({ dark }) => (
       <div id="main">
+        <Sound loop url={mp3} playStatus={(dark ? 'PLAYING' : 'PAUSED') as PlayStatus} />
         <div id="header">
           <H1>Michael Copland</H1>
         </div>

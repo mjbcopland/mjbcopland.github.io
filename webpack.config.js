@@ -20,6 +20,10 @@ const config = {
           use: ['html-loader'],
         },
         {
+          include: /\.mp3$/,
+          use: ['file-loader'],
+        },
+        {
           include: /\.(sa|sc|c)ss$/,
           use: ['css-loader', 'sass-loader'],
         },
