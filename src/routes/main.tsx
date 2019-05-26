@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { DarkMode } from '~/components/dark-mode';
 
-import '~/css/blink.scss';
 import '~/css/main.scss';
 
 import mp3 from '~/mp3/Seven Kingdoms.mp3';
