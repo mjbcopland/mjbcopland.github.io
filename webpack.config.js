@@ -9,6 +9,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const config = {
   common: {
+    output: {
+      publicPath: '/dist',
+    },
     resolve: {
       alias: { '~': path.resolve(__dirname, 'src/') },
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -21,7 +24,7 @@ const config = {
         },
         {
           include: /\.mp3$/,
-          use: ['file-loader'],
+          use: [{ loader: 'file-loader', options: { name: '[path][name].[ext]', publicPath: '/', emitFile: false } }],
         },
         {
           include: /\.(sa|sc|c)ss$/,
@@ -34,7 +37,10 @@ const config = {
         },
       ],
     },
-    plugins: [new HtmlWebPackPlugin({ template: 'src/index.html' })],
+    plugins: [new HtmlWebPackPlugin({ template: 'src/index.html', filename: '../index.html', hash: true })],
+    optimization: {
+      minimizer: [new TerserPlugin({ parallel: true }), new OptimizeCSSAssetsPlugin()],
+    },
   },
   development: {
     mode: 'development',
@@ -57,6 +63,7 @@ const config = {
         {
           include: /\.(sa|sc|c)ss$/,
           use: [MiniCssExtractPlugin.loader],
+          sideEffects: true,
         },
       ],
     },
@@ -65,9 +72,6 @@ const config = {
       new webpack.NormalModuleReplacementPlugin(/iconSvgPaths\.js/, path.resolve(__dirname, 'src/iconSvgPaths.js')),
       new MiniCssExtractPlugin(),
     ],
-    optimization: {
-      minimizer: [new TerserPlugin({ parallel: true }), new OptimizeCSSAssetsPlugin()],
-    },
   },
 };
 
