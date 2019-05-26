@@ -5,22 +5,16 @@ const { smart: merge } = require('webpack-merge');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const config = {
   common: {
     resolve: {
       alias: { '~': path.resolve(__dirname, 'src/') },
-      extensions: ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     },
     module: {
       rules: [
-        {
-          include: /\.m?(j|t)sx?$/,
-          exclude: /node_modules/,
-          use: ['babel-loader'],
-        },
         {
           include: /\.html$/,
           use: ['html-loader'],
@@ -30,8 +24,9 @@ const config = {
           use: ['css-loader', 'sass-loader'],
         },
         {
-          exclude: /\.(m?(j|t)sx?|json|html|(sc|sa|c)ss)$/,
-          use: ['file-loader'],
+          include: /\.(j|t)sx?$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'ts-loader'],
         },
       ],
     },
@@ -48,10 +43,11 @@ const config = {
         },
       ],
     },
-    plugins: [new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }), new ErrorOverlayPlugin()],
+    plugins: [new webpack.EnvironmentPlugin({ NODE_ENV: 'development' })],
   },
   production: {
     mode: 'production',
+    devtool: 'source-map',
     module: {
       rules: [
         {
@@ -62,10 +58,7 @@ const config = {
     },
     plugins: [
       new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
-      new webpack.NormalModuleReplacementPlugin(
-        /iconSvgPaths\.js/,
-        path.resolve(__dirname, 'src/iconSvgPaths.js'),
-      ),
+      new webpack.NormalModuleReplacementPlugin(/iconSvgPaths\.js/, path.resolve(__dirname, 'src/iconSvgPaths.js')),
       new MiniCssExtractPlugin(),
     ],
     optimization: {

@@ -1,4 +1,8 @@
-@import "~@blueprintjs/core/lib/scss/variables";
-@import url("https://fonts.googleapis.com/css?family=Cabin:400,500,600");
+@import url('https://fonts.googleapis.com/css?family=Cabin|Cutive+Mono|Lobster|VT323');
+@import '~@blueprintjs/core/lib/scss/variables';
 
-$pt-font-family: Cabin, sans-serif;
+$pt-font-family: 'Cabin', sans-serif;
+$pt-dark-font-family: monospace;
+$pt-dark-text-color: lime;
+$pt-dark-heading-color: $pt-dark-text-color;
+$pt-dark-app-background-color: black;

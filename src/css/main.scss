@@ -1,4 +1,12 @@
-@import "variables";
+@import 'variables';
+
+h1 {
+  font-family: 'Lobster';
+
+  .bp3-dark & {
+    font-family: 'Cutive Mono';
+  }
+}
 
 #main {
   height: 100%;
@@ -11,6 +19,8 @@
 
   .bp3-dark & {
     background-color: $pt-dark-app-background-color;
+    font-family: $pt-dark-font-family;
+    text-transform: lowercase;
   }
 }
 
