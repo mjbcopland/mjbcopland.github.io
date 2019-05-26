@@ -5,17 +5,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Provider as ThemeProvider } from '~/components/themes';
-import Main from '~/routes/main';
+import { DarkMode } from '~/components/dark-mode';
+import { Main } from '~/routes/main';
 
 import '~/css/index.scss';
 
 const App = () => (
-  <ThemeProvider>
+  <DarkMode.Provider>
     <Router>
       <Route component={Main} />
     </Router>
-  </ThemeProvider>
+  </DarkMode.Provider>
 );
 
 render(<App />, document.getElementById('root'));

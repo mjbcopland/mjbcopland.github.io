@@ -1,16 +1,16 @@
 import React from 'react';
 import Sound, { PlayStatus } from 'react-sound';
 
-import { AnchorButton, ButtonGroup, FocusStyleManager, H1, H2 } from '@blueprintjs/core';
+import { AnchorButton, Button, ButtonGroup, Classes, FocusStyleManager, H1, Icon, Switch } from '@blueprintjs/core';
 
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Consumer as ThemeConsumer } from '~/components/themes';
+import { DarkMode } from '~/components/dark-mode';
 
-import '~/css/main.scss';
 import '~/css/blink.scss';
+import '~/css/main.scss';
 
 import mp3 from '~/mp3/Seven Kingdoms.mp3';
 
@@ -19,42 +19,44 @@ FocusStyleManager.onlyShowFocusOnTabs();
 const socialLinks = [
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/mjbcopland',
     icon: faLinkedin,
+    href: 'https://www.linkedin.com/in/mjbcopland',
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/mjbcopland',
     icon: faGithub,
+    href: 'https://github.com/mjbcopland',
   },
   {
     name: 'Email',
-    href: 'mailto:mjbcopland@gmail.com',
     icon: faEnvelope,
+    href: 'mailto:mjbcopland@gmail.com',
   },
 ];
 
-export default () => (
-  <ThemeConsumer>
-    {({ dark }) => (
+export const Main = () => (
+  <DarkMode.Consumer>
+    {(dark) => (
       <div id="main">
-        <Sound loop url={mp3} playStatus={(dark ? 'PLAYING' : 'PAUSED') as PlayStatus} />
+        <Sound loop url={mp3} playStatus={(dark.enabled ? 'PLAYING' : 'PAUSED') as PlayStatus} />
         <div id="header">
           <H1>Michael Copland</H1>
         </div>
         <div id="content">
           <div>
-            <ButtonGroup minimal={true} large={true}>
+            <ButtonGroup minimal large>
               {socialLinks.map(({ name, href, icon }) => (
                 <AnchorButton key={name} href={href}>
-                  {dark ? name : <FontAwesomeIcon icon={icon} />}
+                  {dark.enabled ? name : <FontAwesomeIcon icon={icon} />}
                 </AnchorButton>
               ))}
             </ButtonGroup>
           </div>
         </div>
-        <div id="footer">© Michael Copland 2019</div>
+        <div id="footer">
+          <Button minimal icon="moon" onClick={dark.toggle} />
+        </div>
       </div>
     )}
-  </ThemeConsumer>
+  </DarkMode.Consumer>
 );
