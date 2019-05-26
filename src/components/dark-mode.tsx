@@ -26,7 +26,7 @@ const Provider = HotkeysTarget(
     };
 
     public toggle = () => {
-      const enabled = this.state;
+      const { enabled } = this.state;
       return enabled ? this.disable() : this.enable();
     };
 
