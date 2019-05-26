@@ -1,7 +1,7 @@
 import React from 'react';
 import Sound, { PlayStatus } from 'react-sound';
 
-import { AnchorButton, Button, ButtonGroup, Classes, FocusStyleManager, H1, Icon, Switch } from '@blueprintjs/core';
+import { AnchorButton, Button, ButtonGroup, FocusStyleManager, H1 } from '@blueprintjs/core';
 
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';

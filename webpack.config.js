@@ -39,7 +39,7 @@ const config = {
     },
     plugins: [new HtmlWebPackPlugin({ template: 'src/index.html', filename: '../index.html', hash: true })],
     optimization: {
-      minimizer: [new TerserPlugin({ parallel: true }), new OptimizeCSSAssetsPlugin()],
+      minimizer: [new TerserPlugin({ parallel: true, sourceMap: true }), new OptimizeCSSAssetsPlugin()],
     },
   },
   development: {
