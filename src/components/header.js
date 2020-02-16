@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import signature from "../images/signature.png"
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -24,7 +26,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <img src={signature} alt="Michael Copland" style={{ height: 60 }} />
         </Link>
       </h1>
     </div>

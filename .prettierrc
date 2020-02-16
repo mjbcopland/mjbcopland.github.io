@@ -1,5 +1,7 @@
 {
+  "arrowParens": "always",
   "endOfLine": "lf",
+  "printWidth": 120,
   "semi": false,
   "singleQuote": false,
   "tabWidth": 2,
