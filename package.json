@@ -1,51 +1,42 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "mjbcopland.github.io",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.27",
-    "@fortawesome/free-brands-svg-icons": "^5.12.1",
-    "@fortawesome/free-solid-svg-icons": "^5.12.1",
-    "@fortawesome/react-fontawesome": "^0.1.8",
-    "@tippy.js/react": "^3.1.1",
-    "gatsby": "^2.19.7",
-    "gatsby-image": "^2.2.39",
-    "gatsby-plugin-manifest": "^2.2.39",
-    "gatsby-plugin-offline": "^3.0.32",
-    "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-sharp": "^2.4.3",
-    "gatsby-source-filesystem": "^2.1.46",
-    "gatsby-transformer-sharp": "^2.3.13",
-    "normalize.css": "^8.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^5.0.1"
+    "clsx": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@next/eslint-plugin-next": "^13.3.0",
+    "@prettier/plugin-xml": "^2.2.0",
+    "@tsconfig/strictest": "^1.0.2",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "autoprefixer": "^10.4.14",
+    "browserslist": "^4.21.5",
+    "eslint": "^8.37.0",
+    "eslint-config-next": "^13.3.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "next": "^13.3.0",
+    "patch-package": "^6.5.1",
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^8.3.0",
+    "prettier": "^2.8.7",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^4.9.5"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "packageManager": "yarn@3.4.1",
+  "resolutions": {
+    "next@^13.1.6": "patch:next@npm%3A13.1.6#./.yarn/patches/next-npm-13.1.6-4d04ae3ad7.patch"
   }
 }

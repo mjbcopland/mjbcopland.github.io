@@ -1,7 +1,5 @@
 {
-  "cSpell.words": [
-    "fontawesome",
-    "fortawesome",
-    "tippy"
-  ]
+  "cSpell.words": ["fontawesome", "fortawesome"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
