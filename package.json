@@ -35,7 +35,7 @@
     "tailwindcss": "^3.3.1",
     "typescript": "^4.9.5"
   },
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.6.1",
   "resolutions": {
     "next@^13.1.6": "patch:next@npm%3A13.1.6#./.yarn/patches/next-npm-13.1.6-4d04ae3ad7.patch"
   }
