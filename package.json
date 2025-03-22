@@ -24,7 +24,7 @@
     "browserslist": "^4.21.9",
     "eslint": "^8.44.0",
     "eslint-config-next": "^13.4.7",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^4.2.1",
     "next": "^13.4.7",
     "patch-package": "^7.0.0",
