@@ -1724,14 +1724,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.8.0":
-  version: 8.8.0
-  resolution: "eslint-config-prettier@npm:8.8.0"
+"eslint-config-prettier@npm:^10.1.2":
+  version: 10.1.2
+  resolution: "eslint-config-prettier@npm:10.1.2"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 1e94c3882c4d5e41e1dcfa2c368dbccbfe3134f6ac7d40101644d3bfbe3eb2f2ffac757f3145910b5eacf20c0e85e02b91293d3126d770cbf3dc390b3564681c
+  checksum: 6b317378214a5935457bd9d7c3220ec37fb621e07bf31cf1ffb82bf38eca1cd89f338d18284114d504a865a6bb932faa5df29a18a72e6e43484dbc959d087620
   languageName: node
   linkType: hard
 
@@ -3247,7 +3247,7 @@ __metadata:
     clsx: ^1.2.1
     eslint: ^8.44.0
     eslint-config-next: ^13.4.7
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^10.1.2
     eslint-plugin-prettier: ^4.2.1
     next: ^13.4.7
     patch-package: ^7.0.0
